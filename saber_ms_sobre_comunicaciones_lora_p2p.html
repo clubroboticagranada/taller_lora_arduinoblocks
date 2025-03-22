@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Saber más sobre comunicaciones LoRa P2P | Taller. Comunicaciones LoRa con ESP32 STEAMakers y Arduinoblocks </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Pedro Ruiz Fernández" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+<body class="exe-web-site" id="exe-node-9"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Taller. Comunicaciones LoRa con ESP32 STEAMakers y Arduinoblocks</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Taller Comunicaciones LoRa con ESP32 STEAMakers y Arduinoblocks</a></li>
+   <li class="current-page-parent"><a href="mdulo_lora_rdenes_y_conexionado.html" class="current-page-parent daddy">Módulo LoRa. Órdenes y Conexionado</a>
+   <ul>
+      <li id="active"><a href="saber_ms_sobre_comunicaciones_lora_p2p.html" class="active no-ch">Saber más sobre comunicaciones LoRa P2P</a></li>
+   </ul>
+   </li>
+   <li><a href="materiales_para_un_grupo.html" class="no-ch">Materiales para un grupo</a></li>
+   <li><a href="prctica_1_comunicacin_simple.html" class="no-ch">Práctica 1. Comunicación simple</a></li>
+   <li><a href="prctica_2_comunicacin_json.html" class="no-ch">Práctica 2. Comunicación JSON</a></li>
+   <li><a href="prctica_3_datalogger_remoto.html" class="no-ch">Práctica 3. Datalogger remoto</a></li>
+   <li><a href="prctica_4_telecomandado.html" class="no-ch">Práctica 4. Telecomandado</a></li>
+   <li><a href="prctica_5_datalogger_remoto_sensor_de_partculas.html" class="no-ch">Práctica 5. Datalogger Remoto sensor de partículas</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="mdulo_lora_rdenes_y_conexionado.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="materiales_para_un_grupo.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">Saber más sobre comunicaciones LoRa P2P</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id238">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">LoRa. Tipo de señal</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta238_124_2" class="block iDevice_content">
+<div class="exe-text"><p>LoRa es una tecnología de comunicación patentada, que está pensada para comunicaciones con un bajo consumo de energía, largo alcance y buena inmunidad frente al ruido, lo que la hace ideal para aplicaciones IoT.</p>
+<p>El sistema de comunicación LoRa esta basado en la modulación CSS (Chirp Spread Spectrum), que es una técnica de modulación de banda ancha, que utiliza chirps (pitidos), para codificar la información. Los chirps son como pitidos de un tono cuya frecuencia incrementa o decrementa linealmente con el tiempo a lo largo del ancho de banda utilizado (BW), simétrico a la frecuencia central y cada chirp representa un símbolo, que puede tener 2<sup>F</sup> valores, donde F representa el Spread Factor.</p>
+<p>En el sistema LoRa se transmiten paquetes de datos y estos paquetes de datos están formados por:</p>
+<ul>
+<li>Preámbulo (preamble), que está formado por un número de chirps variables y una palabra de sincronización (Sync Word). En recepción se comprueba si el preámbulo recibido coincide con el programado y si no coincide desecha el resto del mensaje.</li>
+<li>Cabecera, que puede ser explícita o implícita y en el caso de que sea explícita, contendrá información sobre el número de datos a enviar, la tasa de codificación de errores y la presencia de un código de verificación de errores.</li>
+<li>Carga útil, que es la información neta que se desea transmitir. En Lora el número máximo de es de 255 bytes (caracteres).</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id239">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Parámetros de transmisión en LoRa P2P</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta239_120_2" class="block iDevice_content">
+<div class="exe-text"><h4>Inicialización del módulo LoRa</h4>
+<p>Cuando inicializamos el módulo LoRa con el bloque de inicialización, para una frecuencia central determinada (en nuestro caso 868 MHz), nos fija una serie de parámetros por defecto, que son los siguientes:</p>
+<ul>
+<li>Frequency = 868 MHz</li>
+<li>TxPower =17</li>
+<li>SpreadingFactor= 7</li>
+<li>Bandwith= 125000 Hz</li>
+<li>CodingRate= 5</li>
+<li>PreambleLength= 8</li>
+<li>SyncWord= 0x12</li>
+<li>Gain = 0 (auto)</li>
+<li><span style="color: #000000;">EnableCRC= disable</span><span style="color: #ff0000;"><br /></span></li>
+</ul>
+<p>En el programa podemos modificar cualquiera de estos parámetros con los siguientes bloques de arduinoblocks relacionados con la modificación de nuestra transmisión LoRa:</p>
+<p><img src="bloques_lora_avanzados.png" alt="bloques lora avanzados" title="bloques lora avanzados" width="400" height="533" style="float: right; margin-right: 4px; margin-left: 4px;" /></p>
+<h5>TX Power</h5>
+<p>Define la potencia de la transmisión de decibelios (dB) de nuestro dispositivo LoRa. Le podemos dar valores entre 2 y 20 decibelios (dB), por defecto 17 dB.</p>
+<h5>Frequency. Frecuencia (portadora)</h5>
+<p>Define la frecuencia portadora del medio utilizado tanto para las operaciones de transmisión como para las de escucha. También depende de la región operativa: en Europa, la frecuencia portadora operativa de LoRa es la banda ISM de la UE 863-870MHz. En nuestro caso por defecto 868 MHz. Podemos cambiar a valores no enteros como en el ejemplo de configuración de la imagen.</p>
+<h5>Ancho de banda (BandWidth)</h5>
+<p>Representa el ancho de las señales de radiofrecuencia LoRa, es en realidad un rango de frecuencia que oscila respecto a la frecuencia base dónde se concentra la mayor potencia de la señal, que se usa para la transmisión de datos. Por lo general, se establece en 125 kHz, pero se puede aumentar hasta 250 kHz o incluso 500 kHz en algunas regiones para parámetros de modulación particulares.</p>
+<p>Un ancho de banda más alto proporciona una velocidad de datos más alta (por tanto, un tiempo más corto en el aire), pero una sensibilidad más baja (debido a la integración de ruido adicional).</p>
+<p>Un ancho de banda más bajo proporciona una sensibilidad más alta, pero una velocidad de datos más baja.</p>
+<p>En ancho de banda por defecto es de 125 KHz, pero se le pueden dar el siguiente rango de valores: 7.8 KHz, 10.4 KHz, 15.6 KHz, 20.8 KHz, 31.25 KHz, 41.7 KHz, 62.5 KHz, 125 KHz, 250 KHz, y 500 KHz.</p>
+<h5>Spreading Factor (SF), factor de propagación o factor de ensanchamiento</h5>
+<p>Representa el parámetro de propagación del chirp*, que define cuántos chirps se envían por segundo. Toma un valor por defecto de 7, pero se le pueden dar un rango de valores entre 6 y 12. En detalle, un SF grande aumenta el tiempo en el aire del símbolo (dato a transmitir) y el consumo de energía, mejorando así el rango de comunicación, pero reduciendo la velocidad de datos disponible y el tamaño de la carga útil de los mensajes.</p>
+<p>Cada aumento en el factor de ensanchamiento (SF) reduce a la mitad la velocidad de transmisión y, por lo tanto, duplica la duración de la transmisión y, en última instancia, el consumo de energía.</p>
+<p>A menos SF más velocidad de transmisión de datos y menos alcance, a más SF menos velocidad de transmisión de datos y más alcance. El alcance también depende en gran medida del entorno y las posibles construcciones u obstáculos que se encuentren a su paso.<br />* (chirp): son pulsos de frecuencia (ascendente o descendente), la secuencia de los mismos se usan para enviar símbolos (datos). </p>
+<p><img src="lora_sf.jpg" alt="tabla lora sf" title="tabla lora sf" width="601" height="290" /></p>
+<h5>Coding Rate o razón de código:</h5>
+<p>Es la razón (cociente) de Forward Error Correction (FEC) usada por LoRa. FEC es el proceso donde son añadidos bits de corrección de error a los datos trasmitidos. La Razón de Código se refiere a la proporción de bits transmitidos que realmente llevan información con respecto a los totales. LoRa permite los siguientes valores \(CR=\{\frac{4}{5},\frac{4}{6},\frac{4}{7},\frac{4}{8}\}\), los cuales son calculados de la siguiente manera:<br />\(CR=\frac{4}{4+CR}\) donde \(CR=\{1,2,3,4\}\)</p>
+<p>Toma un valor por defecto de 5, pero se le pueden dar un rango de valores entre 5 y 8.</p>
+<h5>Preamble Length</h5>
+<p>Son un numero de símbolos que se envían al principio de cada información enviada en LoRa, su valor por defecto son 8, pero se les puede dar un rango entre 6 y 65535 símbolos.</p>
+<h5>Sync word</h5>
+<p>Establece la palabra de sincronismo de la comunicación de radio LoRa. Es un byte en hexadecimal cuyo valor por defecto es 0x12, y puede tomar un rango de valores entre 0 y 0xFF.</p>
+<h5>Gain</h5>
+<p>Configura la ganancia de LNA para obtener una mejor sensibilidad de RX; de forma predeterminada, se usa AGC (control automático de ganancia) y no se usa la ganancia de LNA.<br />Valores de 0 (ganancia automática) hasta el 6. Por defecto 0.</p>
+<h5><span style="color: #000000;">CRC </span></h5>
+<p><span style="color: #000000;">La verificación por redundancia cíclica​ (CRC) es un código de detección de errores usado frecuentemente en redes digitales y en dispositivos de almacenamiento para detectar cambios accidentales en los datos. Comprueba aritméticamente que los datos recibidos concuerdan con los enviados. El CRC está por defecto deshabilitado y se puede habilitar o no.</span><code></code></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id240">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Comunicación efectiva entre dispositivos LoRa</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta240_120_2" class="block iDevice_content">
+<div class="exe-text"><p>Para que una comunicación pueda establecerse punto a punto entre dos dispositivos LoRa se debe cumplir todos estos requisitos:</p>
+<ul>
+<li>Que trabajen con los mismos valores simultáneamente de:
+<ul>
+<li>Frecuencia.</li>
+<li>Ancho de banda.</li>
+<li>Coding Rate.</li>
+<li>Spreading Factor.</li>
+<li>Preamble Length.</li>
+<li>Sync Word.</li>
+<li><span style="color: #000000;">CRC lo tengan igual (activado o desactivado)</span></li>
+<li>Si la información está encriptada, misma palabra de encriptación.</li>
+</ul>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="mdulo_lora_rdenes_y_conexionado.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="materiales_para_un_grupo.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_style_js.js"></script></body></html>

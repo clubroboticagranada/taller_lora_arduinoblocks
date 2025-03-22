@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Módulo LoRa. Órdenes y Conexionado | Taller. Comunicaciones LoRa con ESP32 STEAMakers y Arduinoblocks </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Pedro Ruiz Fernández" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+<body class="exe-web-site" id="exe-node-8"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Taller. Comunicaciones LoRa con ESP32 STEAMakers y Arduinoblocks</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Taller Comunicaciones LoRa con ESP32 STEAMakers y Arduinoblocks</a></li>
+   <li id="active"><a href="mdulo_lora_rdenes_y_conexionado.html" class="active daddy">Módulo LoRa. Órdenes y Conexionado</a>
+   <ul>
+      <li><a href="saber_ms_sobre_comunicaciones_lora_p2p.html" class="no-ch">Saber más sobre comunicaciones LoRa P2P</a></li>
+   </ul>
+   </li>
+   <li><a href="materiales_para_un_grupo.html" class="no-ch">Materiales para un grupo</a></li>
+   <li><a href="prctica_1_comunicacin_simple.html" class="no-ch">Práctica 1. Comunicación simple</a></li>
+   <li><a href="prctica_2_comunicacin_json.html" class="no-ch">Práctica 2. Comunicación JSON</a></li>
+   <li><a href="prctica_3_datalogger_remoto.html" class="no-ch">Práctica 3. Datalogger remoto</a></li>
+   <li><a href="prctica_4_telecomandado.html" class="no-ch">Práctica 4. Telecomandado</a></li>
+   <li><a href="prctica_5_datalogger_remoto_sensor_de_partculas.html" class="no-ch">Práctica 5. Datalogger Remoto sensor de partículas</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="saber_ms_sobre_comunicaciones_lora_p2p.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">Módulo LoRa. Órdenes y Conexionado</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id241">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Módulo Lora - LoRaWan. Comunicaciones LoRa</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta241_198_2" class="block iDevice_content">
+<div class="exe-text"><p>Los módulos LoRa pueden enviar y recibir señales LoRa (LongRange). LoRa es una tecnología de comunicación patentada, que está pensada para comunicaciones con un bajo consumo de energía, largo alcance y buena inmunidad frente al ruido, lo que la hace ideal para aplicaciones IoT.</p>
+<p><img src="modulo-lora-lorawan.jpg" alt="lora a" title="lora a" width="300" height="300" /></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id242">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Ordenes LoRa en arduinoblocks</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta242_215_2" class="block iDevice_content">
+<div class="exe-text"><table style="height: 50px; width: 100%; border-style: hidden; float: left;" border="1">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 50%; height: 10px;"><img src="aclaracion_bloque_lora.png" alt="bloque lora init" title="bloque lora init" width="599" height="342" /></td>
+<td style="width: 50%; height: 10px;">
+<p>Para inicializar el dispositvo LoRa en arduinoblocks debemos utilizar el siguiente bloque en la esctructura "Inicializar" de nuestro programa". En este bloque podemos configurar dos parámetros:</p>
+<ul>
+<li>Frecuencia (MHz): las frecuencias de funcionamiento varían dependiendo del país y suelen ser las bandas 433 MHz, 868 MHz y 915 MHz. En nuestro caso 868 MHz.</li>
+<li> Palabra de encriptación de 16 caracteres: se puede usar o no, sirve para proteger nuestros datos enviados a través de un proceso de encriptación. Para que se pueda producir la comunicación entre emisor y receptor deben de tener la misma palabra de encriptación.</li>
+<li>Con respecto a la configuración de pines de conexionado, no hay que tocar los que vienen por defecto, si lo conectamos como indicamos en el siguiente apartado (conexión directa a pines hembra de placa).</li>
+</ul>
+<p></p>
+</td>
+</tr>
+<tr style="height: 0px;">
+<td style="width: 50%; height: 10px;"><img src="bloque_lora_send.png" alt="bloque lora send" title="bloque lora send" width="240" height="46" /></td>
+<td style="width: 50%; height: 10px;">
+<p>Envía una trama de datos. La longitud máxima de datos a enviar variará entre 51 y 242 bytes (caracteres). Dependerá de la frecuencia utilizada (en nuestro caso 868 MHz), el ancho de banda utilizado, por defecto 125000 Hz, el SF (Spreading Factor) utilizado, por defecto 7. Por tanto por defecto puede enviar un máximo de 242 bytes (caracteres).</p>
+<p><img src="bytes_maximos_emitir.png" alt="bytes maximos emisión" title="bytes maximos emisión" width="349" height="174" /></p>
+</td>
+</tr>
+<tr style="height: 0px;">
+<td style="width: 50%; height: 10px;"><img src="bloque_ondatareceived.png" alt="bloque ondatareceived" title="bloque ondatareceived" width="245" height="95" /></td>
+<td style="width: 50%; height: 10px;">Evento que se activa cuando se reciben datos, vía LoRa.</td>
+</tr>
+<tr style="height: 0px;">
+<td style="width: 50%; height: 10px;"><img src="bloque_received_data.png" alt="bloque received data" title="bloque received data" width="246" height="46" /></td>
+<td style="width: 50%; height: 10px;">Dentro del evento anterior, nos devuelve la trama de caracteres que nos han enviado. Si la asignamos a una variable debe ser de texto.</td>
+</tr>
+<tr style="height: 0px;">
+<td style="width: 50%; height: 10px;"><img src="bloque_rssi.png" alt="bloque rssi" title="bloque rssi" width="384" height="50" /></td>
+<td style="width: 50%; height: 10px;">Dentro del evento anterior, nos devuelve la intensidad de la señal recibida. Si asignamos el valor a una variable, debe ser numérica.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id243">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Conexionado</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta243_199_2" class="block iDevice_content">
+<div class="exe-text"><p>El módulo LoRa se pincha directamente en la placa ESP32 STEAMakers entre el pin superior de 5V y el pin digital 6 (D6 / IO27). Hay que hacer coincidir el pin hembra de 5V de la placa con el pin VCC del módulo LoRa, tal como se muestra en el esquema de conexionado. La conexión de este módulo es de tipo SPI (utiliza el puerto SPI de la placa).</p>
+<p><img src="esp32_lora_bb.png" alt="esp32 lora" title="esp32 lora" width="500" height="678" /></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id245">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Para saber más</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta245_215_2" class="block iDevice_content">
+<div class="exe-text"><p><a href="https://drive.google.com/file/d/1tZecaEcz6yPZwbVpgCbpPG4LeU5A3kPs/view" target="_blank" rel="noopener">LoRa y LoRaWAN en Arduinoblocks + ESP32 STEAMakers</a>, por <em>Juanjo López</em>.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="saber_ms_sobre_comunicaciones_lora_p2p.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_style_js.js"></script></body></html>
